@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import ProfileScreen from '../screens/ProfileScreen';
 const Tab = createMaterialBottomTabNavigator();
 
 function MyTabs() {
@@ -32,8 +32,8 @@ function MyTabs() {
         }}
       />
       <Tab.Screen
-        name="Profile"
-        component={Profile}
+        name="ProfileScreen"
+        component={ProfileScreen}
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color }) => (
