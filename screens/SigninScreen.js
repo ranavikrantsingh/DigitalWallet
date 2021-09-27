@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet,KeyboardAvoidingView, Text,Pressable, View } from 'react-native'
 import { TextInput } from 'react-native-paper';
 
-const SignIn = () => {
+const SigninScreen = () => {
     return (
         <KeyboardAvoidingView>
             <TextInput
@@ -26,7 +26,7 @@ const SignIn = () => {
                 secureTextEntry={!showPassword}
                 onChangeText={(text) => setPassword(text)}
             />
-            <ButtonComponent name="Sign in" onPress={() => ()} />
+            <ButtonComponent name="Sign in" onPress={()=> navigation.navigate('HomeScreen')} />
             <View style={{flexDirection:'row'}}>
            <Pressable
           onPress={()=> doUserPasswordReset()}
@@ -49,7 +49,7 @@ New User?
     );
 };
 
-export default SignIn
+export default SigninScreen
 
 const styles = StyleSheet.create({
     input:{

@@ -4,21 +4,22 @@ import Video from 'react-native-video'
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
-const Splash = ({navigation}) => {
+const SplashScreen = ({ navigation }) => {
     
-    setTimeout(() => {navigation.replace('SignIn')
+    setTimeout(() => {
+        navigation.replace('SigninScreen')
         
-    }, 5500);
+    }, 3500);
     return (
         <SafeAreaView>
-        <Video style={styles.background} source={require('../assets/Splash.mp4')} fullscreen={true}
-resizeMode="cover"
-/>
+            <Video style={styles.background} source={require('../assets/Splash.mp4')} fullscreen={true}
+                resizeMode="cover"
+            />
         </SafeAreaView>
-    )
-}
+    );
+};
 
-export default Splash
+export default SplashScreen;
 
 const styles = StyleSheet.create({
     background:{

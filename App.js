@@ -1,112 +1,41 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import "react-native-gesture-handler";
+import React,{useEffect} from "react";
+// import Parse from 'parse/react-native.js';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
+import { StyleSheet, View,StatusBar,LogBox,Dimensions } from "react-native";
+import Colors from "./constants/Colors";
+import MainNavigator from "./navigation/MainNavigator";
+// import OneSignal from 'react-native-onesignal';
 
-import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+// Parse.setAsyncStorage(AsyncStorage);
+// Parse.initialize('YVrd5P0VRLsrhhXeqIcerPrnaxeTktEVqhhn3F8I', 'sxN97lrKi33BdQdvbbomVVXHSD28wLGF2mmzViHN');
+// Parse.serverURL = 'https://parseapi.back4app.com/';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const App = (props) => {
+  
+  // useEffect(() => {
+  //   OneSignal.setAppId('2f978cc9-abbf-4549-b452-a087d45cfc69', {
+  //     kOSSettingsKeyAutoPrompt: false,
+  //     kOSSettingsKeyInAppLaunchURL: false,
+  //     kOSSettingsKeyInFocusDisplayOption: 2,
+  //   });
+  //   OneSignal.setLogLevel(6, 0);
+  // }, []);
+  
+  LogBox.ignoreAllLogs()
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+    <View style={styles.screen}>
+          <StatusBar  backgroundColor={Colors.accent} barStyle="light-content"/>
+      <MainNavigator />
     </View>
   );
 };
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
+export default App;
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+  screen: {
+    flex: 1,
   },
 });
-
-export default App;
